@@ -1,0 +1,56 @@
+{
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 23,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "macos_make",
+            "displayName": "MacOS with Make",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/default"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "macos_make",
+            "displayName": "MacOS with Make",
+            "configurePreset": "macos_make"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "macos_make",
+            "displayName": "MacOS with Make",
+            "configurePreset": "macos_make",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "default",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "default"
+                },
+                {
+                    "type": "build",
+                    "name": "default"
+                },
+                {
+                    "type": "test",
+                    "name": "default"
+                }
+            ]
+        }
+    ]
+}
