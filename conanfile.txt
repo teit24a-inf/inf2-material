@@ -1,7 +1,6 @@
 [requires]
 catch2/3.8.0
 [tool_requires]
-ninja/1.12.1
 [generators]
 CMakeDeps
 CMakeToolchain
