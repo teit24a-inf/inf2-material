@@ -5,6 +5,12 @@ project("Informatik 2 - TEIT24A")
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 set(CMAKE_CXX_STANDARD 20)
 
+find_package(Catch2 REQUIRED)
+list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
+
+include(CTest)
+include(Catch)
+
 add_subdirectory(src)
 
 cmake_path(SET GITIGNORE_FILE NORMALIZE "${CMAKE_BINARY_DIR}/.gitignore")
