@@ -2,17 +2,6 @@ cmake_minimum_required(VERSION 3.10)
 
 project("Informatik 2 - TEIT24A")
 
-Include(FetchContent)
-
-FetchContent_Declare(
-        Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG        v3.5.4 # or a later release
-        FIND_PACKAGE_ARGS
-)
-
-FetchContent_MakeAvailable(Catch2)
-
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 set(CMAKE_CXX_STANDARD 20)

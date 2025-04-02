@@ -7,24 +7,21 @@
     },
     "configurePresets": [
         {
-            "name": "macos_make",
-            "displayName": "MacOS with Make",
+            "name": "macos-make",
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/default"
         }
     ],
     "buildPresets": [
         {
-            "name": "macos_make",
-            "displayName": "MacOS with Make",
-            "configurePreset": "macos_make"
+            "name": "macos-make",
+            "configurePreset": "macos-make"
         }
     ],
     "testPresets": [
         {
-            "name": "macos_make",
-            "displayName": "MacOS with Make",
-            "configurePreset": "macos_make",
+            "name": "macos-make",
+            "configurePreset": "macos-make",
             "output": {
                 "outputOnFailure": true
             },
@@ -36,19 +33,19 @@
     ],
     "workflowPresets": [
         {
-            "name": "default",
+            "name": "macos-make",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "default"
+                    "name": "macos-make"
                 },
                 {
                     "type": "build",
-                    "name": "default"
+                    "name": "macos-make"
                 },
                 {
                     "type": "test",
-                    "name": "default"
+                    "name": "macos-make"
                 }
             ]
         }
