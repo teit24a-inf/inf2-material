@@ -7,21 +7,49 @@
     },
     "configurePresets": [
         {
-            "name": "macos-make",
+            "name": "debug",
             "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/build/default"
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "cmake/conan_provider.cmake",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "release",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/release",
+            "cacheVariables": {
+                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "cmake/conan_provider.cmake",
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [
         {
-            "name": "macos-make",
-            "configurePreset": "macos-make"
+            "name": "debug",
+            "configurePreset": "debug"
+        },
+        {
+            "name": "release",
+            "configurePreset": "release"
         }
     ],
     "testPresets": [
         {
-            "name": "macos-make",
-            "configurePreset": "macos-make",
+            "name": "debug",
+            "configurePreset": "debug",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "release",
+            "configurePreset": "release",
             "output": {
                 "outputOnFailure": true
             },
@@ -33,19 +61,36 @@
     ],
     "workflowPresets": [
         {
-            "name": "macos-make",
+            "name": "debug",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "macos-make"
+                    "name": "debug"
                 },
                 {
                     "type": "build",
-                    "name": "macos-make"
+                    "name": "debug"
                 },
                 {
                     "type": "test",
-                    "name": "macos-make"
+                    "name": "debug"
+                }
+            ]
+        },
+        {
+            "name": "release",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "release"
+                },
+                {
+                    "type": "build",
+                    "name": "release"
+                },
+                {
+                    "type": "test",
+                    "name": "release"
                 }
             ]
         }
