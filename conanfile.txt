@@ -1,7 +1,5 @@
 [requires]
 [tool_requires]
-llvm-core/19.1.7
-cmake/3.22.6
 ninja/1.12.1
 [generators]
 CMakeDeps
