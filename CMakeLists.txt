@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 20)
 find_package(Catch2 REQUIRED)
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 
+include(cmake/test_functions.cmake)
 include(CTest)
 include(Catch)
 
