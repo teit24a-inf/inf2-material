@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project("Informatik 2 - TEIT24A")
+project("Informatik 2")
 
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 set(CMAKE_CXX_STANDARD 20)
