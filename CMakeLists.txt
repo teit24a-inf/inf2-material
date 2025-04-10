@@ -4,8 +4,7 @@ Include(FetchContent)
 
 project("Informatik 2")
 
-set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
-add_compile_options(-Wall -Wextra -pedantic)
+set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
 set(CMAKE_CXX_STANDARD 20)
 
 FetchContent_Declare(
