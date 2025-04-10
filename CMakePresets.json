@@ -11,7 +11,6 @@
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/debug",
             "cacheVariables": {
-                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "cmake/conan_provider.cmake",
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
@@ -20,7 +19,6 @@
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/release",
             "cacheVariables": {
-                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "cmake/conan_provider.cmake",
                 "CMAKE_BUILD_TYPE": "Release"
             }
         }
