@@ -7,7 +7,7 @@
     },
     "configurePresets": [
         {
-            "name": "debug",
+            "name": "mac_debug",
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/debug",
             "cacheVariables": {
@@ -15,8 +15,24 @@
             }
         },
         {
-            "name": "release",
+            "name": "mac_release",
             "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "mingw_debug",
+            "generator": "MinGW Makefiles",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "mingw_release",
+            "generator": "MinGW Makefiles",
             "binaryDir": "${sourceDir}/build/release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -25,18 +41,26 @@
     ],
     "buildPresets": [
         {
-            "name": "debug",
-            "configurePreset": "debug"
+            "name": "mac_debug",
+            "configurePreset": "mac_debug"
         },
         {
-            "name": "release",
-            "configurePreset": "release"
+            "name": "mac_release",
+            "configurePreset": "mac_release"
+        },
+        {
+            "name": "mingw_debug",
+            "configurePreset": "mingw_debug"
+        },
+        {
+            "name": "mingw_release",
+            "configurePreset": "mingw_release"
         }
     ],
     "testPresets": [
         {
-            "name": "debug",
-            "configurePreset": "debug",
+            "name": "mac_debug",
+            "configurePreset": "mac_debug",
             "output": {
                 "outputOnFailure": true
             },
@@ -46,8 +70,30 @@
             }
         },
         {
-            "name": "release",
-            "configurePreset": "release",
+            "name": "mac_release",
+            "configurePreset": "mac_release",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "mingw_debug",
+            "configurePreset": "mingw_debug",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "mingw_release",
+            "configurePreset": "mingw_release",
             "output": {
                 "outputOnFailure": true
             },
@@ -59,36 +105,70 @@
     ],
     "workflowPresets": [
         {
-            "name": "debug",
+            "name": "mac_debug",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "debug"
+                    "name": "mac_debug"
                 },
                 {
                     "type": "build",
-                    "name": "debug"
+                    "name": "mac_debug"
                 },
                 {
                     "type": "test",
-                    "name": "debug"
+                    "name": "mac_debug"
                 }
             ]
         },
         {
-            "name": "release",
+            "name": "mac_release",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "release"
+                    "name": "mac_release"
                 },
                 {
                     "type": "build",
-                    "name": "release"
+                    "name": "mac_release"
                 },
                 {
                     "type": "test",
-                    "name": "release"
+                    "name": "mac_release"
+                }
+            ]
+        },
+        {
+            "name": "mingw_debug",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "mingw_debug"
+                },
+                {
+                    "type": "build",
+                    "name": "mingw_debug"
+                },
+                {
+                    "type": "test",
+                    "name": "mingw_debug"
+                }
+            ]
+        },
+        {
+            "name": "mingw_release",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "mingw_release"
+                },
+                {
+                    "type": "build",
+                    "name": "mingw_release"
+                },
+                {
+                    "type": "test",
+                    "name": "mingw_release"
                 }
             ]
         }
