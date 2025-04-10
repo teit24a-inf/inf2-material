@@ -37,6 +37,22 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "name": "msvc_debug",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "msvc_release",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [
@@ -55,6 +71,14 @@
         {
             "name": "mingw_release",
             "configurePreset": "mingw_release"
+        },
+        {
+            "name": "msvc_debug",
+            "configurePreset": "msvc_debug"
+        },
+        {
+            "name": "msvc_release",
+            "configurePreset": "msvc_release"
         }
     ],
     "testPresets": [
@@ -94,6 +118,28 @@
         {
             "name": "mingw_release",
             "configurePreset": "mingw_release",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "msvc_debug",
+            "configurePreset": "msvc_debug",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "msvc_release",
+            "configurePreset": "msvc_release",
             "output": {
                 "outputOnFailure": true
             },
@@ -169,6 +215,40 @@
                 {
                     "type": "test",
                     "name": "mingw_release"
+                }
+            ]
+        },
+        {
+            "name": "msvc_debug",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "msvc_debug"
+                },
+                {
+                    "type": "build",
+                    "name": "msvc_debug"
+                },
+                {
+                    "type": "test",
+                    "name": "msvc_debug"
+                }
+            ]
+        },
+        {
+            "name": "msvc_release",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "msvc_release"
+                },
+                {
+                    "type": "build",
+                    "name": "msvc_release"
+                },
+                {
+                    "type": "test",
+                    "name": "msvc_release"
                 }
             ]
         }
