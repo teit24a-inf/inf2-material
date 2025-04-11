@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "poi.h"
+
 /// Sucht ein Element in list und liefert dessen Position.
 /// Liefert die Länge der Liste, falls das Element nicht
 /// enthalten ist.
@@ -20,4 +22,5 @@ int find_element(std::vector<std::string> names, std::string name);
 int lookup_fee(std::string name, std::vector<std::string> names,
                std::vector<int> fees);
 
+int lookup_fee(std::string name, std::vector<PointOfInterest>);
 #endif

@@ -28,3 +28,25 @@ int lookup_fee(std::string name, std::vector<std::string> names,
 
   return fees[pos];
 }
+
+int lookup_fee(std::string name, std::vector<PointOfInterest> pois) {
+  //   for (int i = 0; i < pois.size(); i++) {
+  //     if (pois[i].name == name) {
+  //       return pois[i].fee;
+  //     }
+  //   }
+
+  for (PointOfInterest poi : pois) {
+    if (poi.name == name) {
+      return poi.fee;
+    }
+  }
+
+  //   auto iter = std::find_if(pois.begin(), pois.end(),
+  //                            [&](PointOfInterest& p) { return p.name == name;
+  //                            });
+  //   if (iter != pois.end()) {
+  //     return iter->fee;
+  //   }
+  return -1;
+}
