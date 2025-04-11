@@ -12,3 +12,14 @@ TEST_CASE("find_element_string", "[find]") {
                                    std::string{"DHBW Mannheim"}},
                        "Eiffelturm") == 0);
 }
+
+TEST_CASE("lookup_fee") {
+  REQUIRE(lookup_fee("Eiffelturm",
+                     std::vector{std::string{"Eiffelturm"},
+                                 std::string{"DHBW Mannheim"}},
+                     std::vector<int>{42, 23}) == 42);
+  REQUIRE(lookup_fee("Taj Mahal",
+                     std::vector{std::string{"Eiffelturm"},
+                                 std::string{"DHBW Mannheim"}},
+                     std::vector<int>{42, 23}) == -1);
+}
